@@ -46,27 +46,32 @@ export default {
   },
   methods: {
     submit() {
-      this.$refs.formdata.validate((boolean) => {
-        if (boolean) {
-          this.$message({
-            message: '恭喜你，登录成功',
-            type: 'success'
-          });
-          this.$router.push('/home')
-        } else {
-          return this.$message.error('登录失败，账号或密码错误');
+      this.$refs.formdata.validate(async (boolean) => {
+        if (!boolean) { return }
+        else {
+          const { data: res } = await this.$http.post('login', this.info)
+          if (res.meta.status == 200) {
+            this.$message({
+              message: '恭喜你，登录成功',
+              type: 'success'
+            });
+            sessionStorage.setItem('token', res.data.token)
+            this.$router.push('/home')
+          } else {
+            return this.$message.error('登录失败，账号或密码错误');
+          }
         }
       })
     },
     reset() {
       this.$refs.formdata.resetFields()
-    }
+    },
   }
 }
 </script>
 <style  scoped>
 .login {
-  background-color: lightblue;
+  background-color: lightcoral;
   height: 100%;
 }
 
