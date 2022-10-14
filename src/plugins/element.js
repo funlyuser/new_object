@@ -29,7 +29,11 @@ import { Button,
   Backtop,
   Tree,
   Select,
-  Option
+  Option,
+  Cascader,
+  alert,
+  Tabs,
+  TabPane
  } from 'element-ui'
 
 Vue.use(Button)
@@ -61,5 +65,9 @@ Vue.use(Backtop)
 Vue.use(Tree)
 Vue.use(Select)
 Vue.use(Option)
+Vue.use(Cascader)
+Vue.use(Tabs)
+Vue.use(TabPane)
+Vue.prototype.$alert = MessageBox.alert;
 Vue.prototype.$message=Message
 Vue.prototype.$confirm=MessageBox.confirm

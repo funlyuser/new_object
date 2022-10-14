@@ -151,7 +151,6 @@ export default {
     sendaddform() {
       this.$refs.addformref.validate(async valid => {
         if (!valid) {
-
           return
         } else {
           const { data: res } = await this.$http.post('roles', this.addformdatas)
@@ -332,10 +331,5 @@ export default {
 .col {
   margin: 7px;
   font-size: 16px;
-}
-
-.demo-table-expand {
-  /* font-size: 16px; */
-  margin: 0px 60px;
 }
 </style>

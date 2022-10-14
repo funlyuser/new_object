@@ -19,3 +19,11 @@ body,
   height: 100%;
 
 }
+
+.el-cascader-panel {
+  height: 300px;
+}
+
+.el-table__expanded-cell[class*=cell] {
+  padding: 20px 50px;
+}
