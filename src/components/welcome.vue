@@ -1,9 +1,9 @@
 <template>
   <div class="welcome">
     欢迎来到welcome
-    <button @click="componentname='cate'">cate</button>
-    <button @click="componentname='user'">user</button>
-    <component :is="componentname"></component>
+    <button @click="componentname = 'cate'">cate</button>
+    <button @click="componentname = 'user'">user</button>
+    <!-- <component :is="componentname"></component> -->
   </div>
 </template>
 <script>
