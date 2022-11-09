@@ -36,9 +36,9 @@
               <el-input v-model.number="addformdata.goods_price" type="number"></el-input>
             </el-form-item>
             <el-form-item label="商品重量" prop="goods_weight">
-              <el-input v-model.number="addformdata.goods_weight" type="number"></el-input>
+              <el-input v-model.number="addformdata.goods_weight" type="number"> </el-input>
             </el-form-item>
-            <el-form-item label="商品数量" prop="goods_number">
+            <el-form-item label=" 商品数量" prop="goods_number">
               <el-input v-model.number="addformdata.goods_number" type="number"></el-input>
             </el-form-item>
           </el-tab-pane>
@@ -241,7 +241,8 @@ export default {
           newval[k] = item
         }
       }
-    }
+    },
+
   },
   created() {
     this.getoption()
