@@ -79,30 +79,7 @@
 <script>
 export default {
   data() {
-    var weight = (rule, value, callback) => {
-      if (value === '') callback('请输入重量')
-      if (typeof (value) !== 'number') {
-        callback('必须是数字')
-      } else if (value <= 0) {
-        callback('重量不能小于等于0')
-      }
-    }
-    var price = (rule, value, callback) => {
-      if (value === '') callback('请输入价格')
-      if (typeof (value) !== 'number') {
-        callback('必须是数字')
-      } else if (value <= 0) {
-        callback('价格不能小于等于0')
-      }
-    }
-    var number = (rule, value, callback) => {
-      if (value === '') callback('请输入数量')
-      if (typeof (value) !== 'number') {
-        callback('必须是数字')
-      } else if (value <= 0) {
-        callback('数量不能小于等于0')
-      }
-    }
+
     return {
       step: '0',
       propsdata: {

@@ -1,24 +1,31 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import './plugins/element.js'
+// import './plugins/element.js'
 import './css/common.css'
 import axios from 'axios'
 import treetable from 'vue-table-with-tree-grid'
+import VueQuillEditor from 'vue-quill-editor'
+import nProgress from 'nprogress'
 Vue.component('tree-table',treetable)
 Vue.config.productionTip = false
 axios.defaults.baseURL='http://127.0.0.1:8888/api/private/v1/'
+
+//在request拦截器中加入NProgress.start()
 axios.interceptors.request.use((config)=>{
+  nProgress.start()
   config.headers.authorization=sessionStorage.getItem('token')
   return config
 })
-// import Vue from 'vue'
-import VueQuillEditor from 'vue-quill-editor'
 
-import 'quill/dist/quill.core.css' // import styles
-import 'quill/dist/quill.snow.css' // for snow theme
-import 'quill/dist/quill.bubble.css' // for bubble theme
-
+//在response拦截器中加入NProgress.done()
+axios.interceptors.response.use((config)=>{
+  nProgress.done()
+  return config
+})
+// import 'quill/dist/quill.core.css' // import styles
+// import 'quill/dist/quill.snow.css' // for snow theme
+// import 'quill/dist/quill.bubble.css' // for bubble theme
 Vue.use(VueQuillEditor, /* { default global options } */)
 Vue.prototype.$http=axios
 Vue.filter('dateformat',(val)=>{
