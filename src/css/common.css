@@ -31,3 +31,7 @@ body,
 .ql-editor {
   height: 300px !important;
 }
+
+.el-cascader-menu__wrap {
+  height: 300px;
+}

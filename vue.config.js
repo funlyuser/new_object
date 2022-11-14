@@ -8,20 +8,22 @@ module.exports = defineConfig({
 
 
 module.exports={
+   publicPath: "./" ,
   chainWebpack:config=>{
     //打包阶段
     config.when(process.env.NODE_ENV==='production',(config)=>{
       config.entry('app').clear().add('./src/main-prod.js')
-      //externals
-     config.set('externals',{
-                vue:'Vue',
+
+      //使用externals设置排除项
+            config.set('externals',{
                 'vue-router':'VueRouter',
+                 vue:'Vue',
                 axios:'axios',
                 lodash:'_',
                 echarts:'echarts',
-                nprogress:'nProgress',
+                nprogress:'NProgress',
                 'vue-quill-editor':'VueQuillEditor'
-            }),
+            })
             config.plugin('html').tap(arg=>{
               arg[0].isprod=true
               return arg
